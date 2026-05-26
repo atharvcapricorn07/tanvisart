@@ -8,7 +8,7 @@
     <meta name="description" content="The selected artwork and painting portfolio of Tanvi Kale.">
     <meta property="og:title" content="Tanvi Kale | Art Portfolio">
     <meta property="og:description" content="A curated digital gallery of fine art by Tanvi Kale.">
-    <meta property="og:image" content="images/vertical_page-0001.JPG">
+    <meta property="og:image" content="images/vertical_page-0001.jpg">
     <meta property="og:type" content="website">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -81,27 +81,27 @@
 
     <script>
         const paintings = [
-            // Vertical Group (1-9)
-            { id: 1, type: 'vertical', title: "Vintage European House and Greenery", img: "images/vertical_page-0001.JPG" },
-            { id: 2, type: 'vertical', title: "Abstract Pink and Purple Roses", img: "images/vertical_page-0002.JPG" },
-            { id: 3, type: 'vertical', title: "Multicolor European Buildings", img: "images/vertical_page-0003.JPG" },
-            { id: 4, type: 'vertical', title: "Abstract Blue Vase with Flowers", img: "images/vertical_page-0004.JPG" },
-            { id: 5, type: 'vertical', title: "Mexican House with Blue Door", img: "images/vertical_page-0005.JPG" },
-            { id: 6, type: 'vertical', title: "Ocean Blues and Whispy Sky", img: "images/vertical_page-0006.JPG" },
-            { id: 7, type: 'vertical', title: "Branch with Fruits and Autumn Leaves", img: "images/vertical_page-0007.JPG" },
-            { id: 8, type: 'vertical', title: "Evergreen Trees in Blue-Green Hues", img: "images/vertical_page-0008.JPG" },
-            { id: 9, type: 'vertical', title: "Brown House and Mountain Lake", img: "images/vertical_page-0009.JPG" },
+            // Vertical Group (1-9) with extensions fixed to .jpg
+            { id: 1, type: 'vertical', title: "Vintage European House and Greenery", img: "images/vertical_page-0001.jpg" },
+            { id: 2, type: 'vertical', title: "Abstract Pink and Purple Roses", img: "images/vertical_page-0002.jpg" },
+            { id: 3, type: 'vertical', title: "Multicolor European Buildings", img: "images/vertical_page-0003.jpg" },
+            { id: 4, type: 'vertical', title: "Abstract Blue Vase with Flowers", img: "images/vertical_page-0004.jpg" },
+            { id: 5, type: 'vertical', title: "Mexican House with Blue Door", img: "images/vertical_page-0005.jpg" },
+            { id: 6, type: 'vertical', title: "Ocean Blues and Whispy Sky", img: "images/vertical_page-0006.jpg" },
+            { id: 7, type: 'vertical', title: "Branch with Fruits and Autumn Leaves", img: "images/vertical_page-0007.jpg" },
+            { id: 8, type: 'vertical', title: "Evergreen Trees in Blue-Green Hues", img: "images/vertical_page-0008.jpg" },
+            { id: 9, type: 'vertical', title: "Brown House and Mountain Lake", img: "images/vertical_page-0009.jpg" },
 
-            // Horizontal Group (10-18)
-            { id: 10, type: 'horizontal', title: "UW Cherry Blossom Garden", img: "images/horizontal_page-0001.JPG" },
-            { id: 11, type: 'horizontal', title: "Shaded Blue Boat on Blue Water", img: "images/horizontal_page-0002.JPG" },
-            { id: 12, type: 'horizontal', title: "Mughal Architecture Silhouettes", img: "images/horizontal_page-0003.JPG" },
-            { id: 13, type: 'horizontal', title: "Indian Village with Rickshaw", img: "images/horizontal_page-0004.JPG" },
-            { id: 14, type: 'horizontal', title: "Blue Window with Flowers (I)", img: "images/horizontal_page-0005.JPG" },
-            { id: 15, type: 'horizontal', title: "Blue Window with Flowers (II)", img: "images/horizontal_page-0006.JPG" },
-            { id: 16, type: 'horizontal', title: "Abstract Floral All Over", img: "images/horizontal_page-0007.JPG" },
-            { id: 17, type: 'horizontal', title: "Four Roses and Eucalyptus Leaves", img: "images/horizontal_page-0008.JPG" },
-            { id: 18, type: 'horizontal', title: "Soft Mountainous Landscape and River", img: "images/horizontal_page-0009.JPG" }
+            // Horizontal Group (10-18) with extensions fixed to .jpg
+            { id: 10, type: 'horizontal', title: "UW Cherry Blossom Garden", img: "images/horizontal_page-0001.jpg" },
+            { id: 11, type: 'horizontal', title: "Shaded Blue Boat on Blue Water", img: "images/horizontal_page-0002.jpg" },
+            { id: 12, type: 'horizontal', title: "Mughal Architecture Silhouettes", img: "images/horizontal_page-0003.jpg" },
+            { id: 13, type: 'horizontal', title: "Indian Village with Rickshaw", img: "images/horizontal_page-0004.jpg" },
+            { id: 14, type: 'horizontal', title: "Blue Window with Flowers (I)", img: "images/horizontal_page-0005.jpg" },
+            { id: 15, type: 'horizontal', title: "Blue Window with Flowers (II)", img: "images/horizontal_page-0006.jpg" },
+            { id: 16, type: 'horizontal', title: "Abstract Floral All Over", img: "images/horizontal_page-0007.jpg" },
+            { id: 17, type: 'horizontal', title: "Four Roses and Eucalyptus Leaves", img: "images/horizontal_page-0008.jpg" },
+            { id: 18, type: 'horizontal', title: "Soft Mountainous Landscape and River", img: "images/horizontal_page-0009.jpg" }
         ];
 
         const verticalGrid = document.getElementById('vertical-grid');
@@ -161,7 +161,6 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // Back to Top Button visibility scroll handler
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) {
