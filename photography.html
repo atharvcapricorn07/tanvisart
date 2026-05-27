@@ -56,7 +56,7 @@
             
             card.innerHTML = `
                 <div class="aspect-square w-full overflow-hidden bg-[#450920]/5 border border-[#450920]/10 p-2 shadow-xs group-hover:shadow-md transition-all duration-300 group-hover:border-[#DA627D]">
-                    <img id="photo-img-${i}" src="images/photo${i}.jpg" alt="${title}" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]" loading="lazy">
+                    <img id="photo-img-${i}" src="images/photo${i}.JPG" alt="${title}" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]" loading="lazy">
                 </div>
                 <h3 class="text-xs font-light tracking-widest uppercase px-1 text-[#450920]/90 group-hover:text-[#A53860] transition-colors">
                     ${title}
@@ -70,7 +70,7 @@
             imgElement.onerror = function() {
                 const currentSrc = this.src;
                 if (currentSrc.endsWith('.jpg')) {
-                    this.src = "./images/photo" + i + ".jpeg";
+                    this.src = "./images/photo" + i + ".JPEG";
                 }
             };
 
