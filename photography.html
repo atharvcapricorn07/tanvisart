@@ -69,7 +69,7 @@
             // Hard-coded fallback logic prevents the browser from dropping the "images/" directory folder context
             imgElement.onerror = function() {
                 const currentSrc = this.src;
-                if (currentSrc.endsWith('.jpg')) {
+                if (currentSrc.endsWith('.JPG')) {
                     this.src = "./images/photo" + i + ".JPEG";
                 }
             };
