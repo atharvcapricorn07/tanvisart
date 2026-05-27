@@ -66,10 +66,11 @@
 
             const imgElement = document.getElementById(`photo-img-${i}`);
             
-            // Fixed fallback error: ensures 'images/' prefix remains intact
+            // Hard-coded fallback logic prevents the browser from dropping the "images/" directory folder context
             imgElement.onerror = function() {
-                if (!this.src.endsWith('.jpeg')) {
-                    this.src = `images/photo${i}.jpeg`;
+                const currentSrc = this.src;
+                if (currentSrc.endsWith('.jpg')) {
+                    this.src = "./images/photo" + i + ".jpeg";
                 }
             };
 
