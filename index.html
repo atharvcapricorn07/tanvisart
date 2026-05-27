@@ -13,15 +13,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* Smooth fade transitions */
-        .lightbox-fade {
-            transition: opacity 0.3s ease-in-out;
-        }
-        /* Smooth scrolling for the whole page */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Custom scrollbar to match the Bold Berry palette */
+        .lightbox-fade { transition: opacity 0.3s ease-in-out; }
+        html { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #F9DBBD; }
         ::-webkit-scrollbar-thumb { background: #DA627D; border-radius: 4px; }
@@ -30,10 +23,16 @@
 </head>
 <body class="bg-[#F9DBBD] text-[#450920] font-sans min-h-screen selection:bg-[#FFA5AB] relative">
 
-    <header id="top" class="max-w-7xl mx-auto px-6 pt-16 pb-12 text-center select-none">
+    <header id="top" class="max-w-7xl mx-auto px-6 pt-16 pb-6 text-center select-none">
         <h1 class="text-4xl md:text-5xl font-light tracking-widest uppercase mb-2">Tanvi Kale</h1>
         <div class="h-[1px] w-24 bg-[#DA627D] mx-auto my-4"></div>
-        <p class="text-xs tracking-widest uppercase text-[#A53860]/80">Selected Artworks Portfolio</p>
+        <p class="text-xs tracking-widest uppercase text-[#A53860]/80 mb-6">Selected Artworks Portfolio</p>
+        
+        <nav class="flex justify-center items-center gap-8 text-xs tracking-widest uppercase font-medium mt-2">
+            <a href="index.html" class="text-[#450920] border-b border-[#450920] pb-1 transition-all">Art</a>
+            <a href="piano.html" class="text-[#A53860]/70 hover:text-[#450920] pb-1 transition-all">Piano</a>
+            <a href="photography.html" class="text-[#A53860]/70 hover:text-[#450920] pb-1 transition-all">Photography</a>
+        </nav>
     </header>
 
     <main class="max-w-7xl w-full mx-auto px-6 pb-24">
@@ -81,18 +80,17 @@
 
     <script>
         const paintings = [
-            // Vertical Group (1-9) with extensions fixed to .jpg
             { id: 1, type: 'vertical', title: "Vintage European House and Greenery", img: "images/vertical_page-0001.jpg" },
             { id: 2, type: 'vertical', title: "Abstract Pink and Purple Roses", img: "images/vertical_page-0002.jpg" },
             { id: 3, type: 'vertical', title: "Multicolor European Buildings", img: "images/vertical_page-0003.jpg" },
             { id: 4, type: 'vertical', title: "Abstract Blue Vase with Flowers", img: "images/vertical_page-0004.jpg" },
             { id: 5, type: 'vertical', title: "Mexican House with Blue Door", img: "images/vertical_page-0005.jpg" },
             { id: 6, type: 'vertical', title: "Ocean Blues and Whispy Sky", img: "images/vertical_page-0006.jpg" },
-            { id: 7, type: 'vertical', title: "Branch with Fruits and Autumn Leaves", img: "images/vertical_page-0007.jpg" },
+            { id: 7, type: 'vertical', title: "Branch with Fruits and Autumn Leaves", img: "images/vertical_page-0007.jpg", rotate180: true },
             { id: 8, type: 'vertical', title: "Evergreen Trees in Blue-Green Hues", img: "images/vertical_page-0008.jpg" },
             { id: 9, type: 'vertical', title: "Brown House and Mountain Lake", img: "images/vertical_page-0009.jpg" },
+            { id: 17, type: 'vertical', title: "Four Roses and Eucalyptus Leaves", img: "images/vertical_page-0010.jpg" }, // Pointed to your newly rotated file!
 
-            // Horizontal Group (10-18) with extensions fixed to .jpg
             { id: 10, type: 'horizontal', title: "UW Cherry Blossom Garden", img: "images/horizontal_page-0001.jpg" },
             { id: 11, type: 'horizontal', title: "Shaded Blue Boat on Blue Water", img: "images/horizontal_page-0002.jpg" },
             { id: 12, type: 'horizontal', title: "Mughal Architecture Silhouettes", img: "images/horizontal_page-0003.jpg" },
@@ -100,7 +98,6 @@
             { id: 14, type: 'horizontal', title: "Blue Window with Flowers (I)", img: "images/horizontal_page-0005.jpg" },
             { id: 15, type: 'horizontal', title: "Blue Window with Flowers (II)", img: "images/horizontal_page-0006.jpg" },
             { id: 16, type: 'horizontal', title: "Abstract Floral All Over", img: "images/horizontal_page-0007.jpg" },
-            { id: 17, type: 'horizontal', title: "Four Roses and Eucalyptus Leaves", img: "images/horizontal_page-0008.jpg" },
             { id: 18, type: 'horizontal', title: "Soft Mountainous Landscape and River", img: "images/horizontal_page-0009.jpg" }
         ];
 
@@ -115,7 +112,7 @@
             if (art.type === 'vertical') {
                 card.innerHTML = `
                     <div class="aspect-[5/7] w-full overflow-hidden bg-[#450920]/5 border border-[#450920]/10 p-2 shadow-xs group-hover:shadow-md transition-all duration-300 group-hover:border-[#DA627D]">
-                        <img src="${art.img}" alt="${art.title}" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.01]" loading="lazy">
+                        <img src="${art.img}" alt="${art.title}" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.01] ${art.rotate180 ? 'rotate-180' : ''}" loading="lazy">
                     </div>
                     <h3 class="text-xs font-light tracking-widest uppercase px-1 text-[#450920]/90 group-hover:text-[#A53860] transition-colors truncate">
                         ${art.title}
@@ -146,6 +143,8 @@
             
             if (art.type === 'horizontal') {
                 lightboxImg.className = "max-w-[55vh] max-h-[75vw] md:max-w-[57vh] md:max-h-[80vw] object-contain border-4 border-[#F9DBBD] bg-[#450920] shadow-2xl rotate-270 my-8";
+            } else if (art.rotate180) {
+                lightboxImg.className = "max-w-full max-h-[90%] object-contain border-4 border-[#F9DBBD] bg-[#450920] shadow-2xl rotate-180 m-0";
             } else {
                 lightboxImg.className = "max-w-full max-h-[90%] object-contain border-4 border-[#F9DBBD] bg-[#450920] shadow-2xl rotate-0 m-0";
             }
@@ -153,13 +152,8 @@
             lightbox.classList.remove('opacity-0', 'pointer-events-none');
         }
 
-        function closeLightbox() {
-            lightbox.classList.add('opacity-0', 'pointer-events-none');
-        }
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
-        });
+        function closeLightbox() { lightbox.classList.add('opacity-0', 'pointer-events-none'); }
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
